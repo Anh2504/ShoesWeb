@@ -1,17 +1,15 @@
 package com.cdweb.repository;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.CrudRepository;
 
 import com.cdweb.model.Product;
 
-public interface ProductRepository2 extends PagingAndSortingRepository<Product, Integer>{
+public interface ProductRepository2 extends CrudRepository<Product, Integer>{
 	//ArrayList<Product> findAllById(int id, Pageable page);
-	
+	Product deleteById(int id);
 	@Query("SELECT p FROM Product p WHERE price = 1190000")
 	public ArrayList<Product> ff();
 	

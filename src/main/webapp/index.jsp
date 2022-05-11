@@ -26,14 +26,14 @@
                     <ul id="MenuItems">
                         <li><a href="/webbangiay/index">Home</a></li>
                         <li><a href="/webbangiay/product">Products</a></li>
-                        <li><a href="">About</a></li>
+                        <li><a href="/webbangiay/admin">Admin</a></li>
                         <c:choose>
                         	<c:when test="${sessionScope.loginStatus==true }">
                         		<li><a href="#">${username}</a></li>
                         	</c:when>
                         	
                         	<c:otherwise>
-                        		<li><a href="/webbangiay/account-login">Dang nhap</a></li>
+                        		<li><a href="/webbangiay/account-login">Login/Register</a></li>
                         	</c:otherwise>
                         </c:choose>
                         

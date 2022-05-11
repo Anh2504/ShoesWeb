@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.cdweb.model.Order;
 
-public interface OrderRepository extends CrudRepository<Order,Integer>{
+public interface OrderRepository /*extends CrudRepository<Order,Integer> */{
 
 }

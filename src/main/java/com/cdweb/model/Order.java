@@ -13,39 +13,39 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
-@Entity
-@Table(name="OrderTest")
+//@Entity
+//@Table(name="OrderTest")
 public class Order {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	
-	@Column(name = "price")
-	private long price;
-	
-	@OneToMany(mappedBy = "order", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private Set<OrderDetail> orderDetail;
-	
-	public Order() {
-		
-	}
-
-	public Order(long price) {
-		
-		
-		this.price = price;
-	}
-
-	
-
-	public long getPrice() {
-		return price;
-	}
-
-	public void setPrice(long price) {
-		this.price = price;
-	}
-	
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.AUTO)
+//	private int id;
+//	
+//	@Column(name = "price")
+//	private long price;
+//	
+//	@OneToMany(mappedBy = "order", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//	private Set<OrderDetail> orderDetail;
+//	
+//	public Order() {
+//		
+//	}
+//
+//	public Order(long price) {
+//		
+//		
+//		this.price = price;
+//	}
+//
+//	
+//
+//	public long getPrice() {
+//		return price;
+//	}
+//
+//	public void setPrice(long price) {
+//		this.price = price;
+//	}
+//	
 	
 	
 }

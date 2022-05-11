@@ -115,11 +115,11 @@
     
     
     <div class="page-btn">
-         <a href="product/1"><span >1</span> </a>
-         <a href="product/2"><span >2</span> </a>
-         <a href="product/3"><span >3</span> </a>
-         <a href="product/4"><span >4</span> </a>
-         <a href="product/5"><span >5</span> </a>
+         <a href="/webbangiay/product/1"><span >1</span> </a>
+         <a href="/webbangiay/product/2"><span >2</span> </a>
+         <a href="/webbangiay/product/3"><span >3</span> </a>
+         <a href="/webbangiay/product/4"><span >4</span> </a>
+         <a href="/webbangiay/product/5"><span >5</span> </a>
             
     </div>
     

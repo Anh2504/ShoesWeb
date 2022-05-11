@@ -15,6 +15,7 @@ import com.cdweb.service.ProductImageService;
 import com.cdweb.service.ProductService;
 import com.cdweb.service.ProductService2;
 
+
 @Controller
 public class ProductController {
 	
@@ -61,7 +62,7 @@ public class ProductController {
 	
 	@RequestMapping(value="/product")
     public String product(Model model) {
-    	ArrayList<Product> productList = productService2.findNext2();
+    	ArrayList<Product> productList = productService2.findNext1();
     	model.addAttribute("productList", productList);
     	return "product";
     }

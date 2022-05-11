@@ -1,12 +1,13 @@
 package com.cdweb.repository;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import com.cdweb.model.Account;
 
+@Repository
 public interface AccountRepository extends CrudRepository<Account, Integer>{
 	Account findById(int id);
 	Account findByEmail(String email);

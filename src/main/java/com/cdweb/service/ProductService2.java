@@ -44,4 +44,14 @@ public class ProductService2 {
 	public ArrayList<Product> findNext5(){
 		return productRepository2.findNext5();
 	}
+	
+	@Transactional
+	public void addProduct(Product product) {
+		productRepository2.save(product);
+	}
+	
+	@Transactional
+	public void deleteProduct(int id) {
+		productRepository2.deleteById(id);
+	}
 }

@@ -12,31 +12,31 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 
 @Entity
-@Table(name = "Account12")
+@Table(name = "account12")
 public class Account {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
 	@Column(name = "email", unique = true)
-	@NotEmpty(message="Email không được để trống")
-	@Email(message = "Sai định dạng email")
+	@NotEmpty(message="Email khÃ´ng Ä‘Æ°Æ¡Ì£c Ä‘ÃªÌ‰ trÃ´Ì�ng")
+	@Email(message = "Sai Ä‘iÌ£nh daÌ£ng email")
 	private String email;
 
 	@Column(name = "name", columnDefinition="nvarchar")
-	@NotEmpty(message="Tên không được để trống")
+	@NotEmpty(message="TÃªn khÃ´ng Ä‘Æ°Æ¡Ì£c Ä‘ÃªÌ‰ trÃ´Ì�ng")
 	private String name;
 
 	@Column(name = "account_password")
-	@NotEmpty(message="Mật khẩu không được để trống")
+	@NotEmpty(message="MÃ¢Ì£t khÃ¢Ì‰u khÃ´ng Ä‘Æ°Æ¡Ì£c Ä‘ÃªÌ‰ trÃ´Ì�ng")
 	private String password;
 
 	@Column(name = "phone")
-	//@NotEmpty(message="Số điện thoại không được để trống")
+	//@NotEmpty(message="SÃ´Ì� Ä‘iÃªÌ£n thoaÌ£i khÃ´ng Ä‘Æ°Æ¡Ì£c Ä‘ÃªÌ‰ trÃ´Ì�ng")
 	private long phone;
 
 	@Column(name = "address", columnDefinition="nvarchar")
-	@NotEmpty(message="Địa chỉ không được để trống")
+	@NotEmpty(message="Ä�iÌ£a chiÌ‰ khÃ´ng Ä‘Æ°Æ¡Ì£c Ä‘ÃªÌ‰ trÃ´Ì�ng")
 	private String address;
 
 	public Account() {

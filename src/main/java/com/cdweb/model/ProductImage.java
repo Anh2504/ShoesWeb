@@ -9,11 +9,11 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="ProductImageTest")
+@Table(name="productimagetest")
 public class ProductImage {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	
 	@Column(name = "image1")
