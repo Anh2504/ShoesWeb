@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Shoes Web</h1>
+	<h1>ec ec ec</h1>
 </body>
 </html>

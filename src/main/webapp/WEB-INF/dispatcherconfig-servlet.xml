@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 						http://www.springframework.org/schema/beans/spring-beans.xsd
+  						http://www.springframework.org/schema/tx 
+  						http://www.springframework.org/schema/tx/spring-tx.xsd
   						http://www.springframework.org/schema/mvc
                         http://www.springframework.org/schema/mvc/spring-mvc.xsd
                         http://www.springframework.org/schema/context 
@@ -14,16 +17,11 @@
     http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
 	<jpa:repositories base-package="com.cdweb.repository" />
-
-
-
-
+	<mvc:annotation-driven />
 	<context:annotation-config />
 	<context:component-scan base-package="com.cdweb" />
 
-	<mvc:annotation-driven />
-	<mvc:resources mapping="/resources/**"
-		location="/resources/"></mvc:resources>
+	<!-- <mvc:resources mapping="/resources/**" location="/resources/"></mvc:resources> -->
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -53,7 +51,7 @@
 		<property name="jpaProperties">
 			<props>
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
-				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</prop>
 			</props>
 		</property>
 	</bean>
@@ -63,9 +61,9 @@
 		<property name="driverClassName"
 			value="com.mysql.cj.jdbc.Driver" />
 		<property name="url"
-			value="jdbc:mysql://localhost:3306/cdweb" />
-		<property name= "username" value= "root" />
-		<property name= "password" value= "12345" />
+			value="jdbc:mysql://localhost:3306/databasetest1" />
+		<property name="username" value="root" />
+		<property name="password" value="12345" />
 	</bean>
 
 
