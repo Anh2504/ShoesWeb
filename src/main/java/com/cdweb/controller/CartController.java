@@ -18,6 +18,12 @@ public class CartController {
 	@Autowired
 	ProductService productService;
 	
+	@RequestMapping(value = "/cart")
+	public String cart(Model model) {
+		model.addAttribute("cart", cart);
+		return "cart";
+	}
+	
 	@RequestMapping(value = "/addtocart/{product_id}")
 	public String addToCart(@PathVariable int product_id,Model model) {
 		Product product = productService.findById(product_id);

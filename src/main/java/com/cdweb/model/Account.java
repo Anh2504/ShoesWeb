@@ -6,37 +6,38 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 
 @Entity
-@Table(name = "account12")
+@Table(name = "account")
 public class Account {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	@Column(name = "email", unique = true)
-	@NotEmpty(message="Email khÃ´ng Ä‘Æ°Æ¡Ì£c Ä‘ÃªÌ‰ trÃ´Ì�ng")
-	@Email(message = "Sai Ä‘iÌ£nh daÌ£ng email")
+	@NotEmpty(message="Email không được để trống")
+	@Email(message = "Sai định dạng email")
 	private String email;
 
-	@Column(name = "name", columnDefinition="nvarchar")
-	@NotEmpty(message="TÃªn khÃ´ng Ä‘Æ°Æ¡Ì£c Ä‘ÃªÌ‰ trÃ´Ì�ng")
+	@Column(name = "name")
+	@NotEmpty(message="Tên không được để trống")
 	private String name;
 
 	@Column(name = "account_password")
-	@NotEmpty(message="MÃ¢Ì£t khÃ¢Ì‰u khÃ´ng Ä‘Æ°Æ¡Ì£c Ä‘ÃªÌ‰ trÃ´Ì�ng")
+	@NotEmpty(message="Mật khẩu không được để trống")
 	private String password;
 
 	@Column(name = "phone")
-	//@NotEmpty(message="SÃ´Ì� Ä‘iÃªÌ£n thoaÌ£i khÃ´ng Ä‘Æ°Æ¡Ì£c Ä‘ÃªÌ‰ trÃ´Ì�ng")
+	@NotNull(message="Số điện thoại không được để trống")
 	private long phone;
 
-	@Column(name = "address", columnDefinition="nvarchar")
-	@NotEmpty(message="Ä�iÌ£a chiÌ‰ khÃ´ng Ä‘Æ°Æ¡Ì£c Ä‘ÃªÌ‰ trÃ´Ì�ng")
+	@Column(name = "address")
+	@NotEmpty(message="Địa chỉ không được để trống")
 	private String address;
 
 	public Account() {

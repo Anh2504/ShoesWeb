@@ -30,12 +30,18 @@ public class AccountService {
 	
 	@Transactional
 	public boolean checkLogin(String email, String password) {
-		String checkEmail = accountRepository.findByEmail(email).getEmail();
-		String checkPassword = accountRepository.findByEmail(email).getPassword();
-		if(checkEmail.equalsIgnoreCase(email) && checkPassword.equalsIgnoreCase(password)){
+		Account account = accountRepository.findByEmail(email);
+		if(account == null) {
+			return false;
+		}else {
+			//String checkEmail = account.getEmail();
+			String checkPassword = account.getPassword();
+			if(!checkPassword.equalsIgnoreCase(password)) {
+				return false;
+			}
 			return true;
 		}
-		return false;
+		
 	}
 	
 	@Transactional

@@ -4,15 +4,18 @@
     box-sizing: border-box;
 }
 
-body{
-    font-family: 'Poppins', sans-serif;
-}
 
+body{
+    font-family: 'Poppins', sans-serif; 
+} 
+
+/*
 .navbar{
     display: flex;
     align-items: center;
     padding: 20px;
 }
+
 nav{
     flex: 1;
     text-align: right;
@@ -25,6 +28,9 @@ nav ul li{
     display: inline-block;
     margin-right: 20px;
 }
+*/
+
+
 a{
     text-decoration: none;
     color: #555;
@@ -43,6 +49,12 @@ p{
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-around;
+}
+.row__{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 .col-2{
     flex-basis: 50%;
@@ -456,8 +468,57 @@ form a{
     transition: transform 1s;
 }
 
+/* --------------------my category ----------------------*/
+
+#MenuItems a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 20px;
+  padding: 15px;
+  display:inline-block;
+}
+#MenuItems,#MenuItems ul {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+#MenuItems li {
+	display: inline-block;
+	
+}
+#MenuItems li a:hover {color :#000000;}
+#MenuItems li:hover ul {display: block;}
+#MenuItems li ul {
+  position: absolute;
+  width: 200px;
+  display: none;
+  background: white;
+}
+#MenuItems li ul li { 
+   background:  white;
+  display: block; 
+  
+  
+}
+#MenuItems li ul li a {
+	display: block; 
+  	
+  
+
+} 
+#MenuItems li ul li:hover {background: #e6e6e6;}
+
+
+.shopping-cart{
+	float:right;
+}
+
+.shopping-cart:hover{
+
+}
 
 /* --------------- Media query FOR menu -------------- */
+/*
 @media only screen and (max-width: 800px){
     nav ul{
         position: absolute;
@@ -482,7 +543,64 @@ form a{
         cursor: pointer;
     }
 }
+*/
+
+/* --------------- Search form -------------- */
+
+.search-component {
+	display : flex;
+	flex-wrap : wrap;
+	width: 400px;
+	margin: 0 auto;
+	box-sizing : border-box;
+	border : groove 2px black;
+}
+.search-form{
+	display : flex;
+	width: 100%;
+	/* border-bottom : groove 2px black; */
+}
+.search-box {
+	display: block;
+	width: 370px;
+	height: 30px;
+	box-sizing : border-box;
+	margin : 0;
+	padding: 0;
+	/* border-radius : 20px; */
+}
+
+.submit-button{
+	display: block;
+	width : 30px;
+	height: 30px;
+	background-color : white;
+	border : 0;
+	/* font-size: 80px; */
+}
+
+
+.search-result {
+	background-color : white;
+	display: block;
+	width : 100%;
+	/* border : solid 1px black;
+	border-top : 0; */
+}
+
+.search-result a {
+	background-color : white;
+	display: none;
+	text-decoration : none;
+	padding : 0;
+	margin : 8px 0px;
+}
+.search-result a:hover{
+	background-color : #f3f3f3;
+}
+
 /* --------------- Media query FOR less than 600 screen siza -------------- */
+
 @media only screen and (max-width: 600px){
     .row{
         text-align: center;

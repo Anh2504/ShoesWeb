@@ -7,22 +7,14 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Cart {
-	private Account account;
-	private List<Product> productList;
+	private Account account = new Account();
+	private List<Product> productList = new ArrayList<Product>();
+	private List<Integer> productAmountList = new ArrayList<Integer>();
 
-	public Cart() {
-
-	}
-
-	public Cart(Account account, List<Product> productList) {
-		this.account = account;
-		this.productList = productList;
-	}
-	
 	public void addToCart(Product product) {
-		productList = new ArrayList<Product>();
 		productList.add(product);
 	}
+
 	public Account getAccount() {
 		return account;
 	}
@@ -38,4 +30,13 @@ public class Cart {
 	public void setProductList(List<Product> productList) {
 		this.productList = productList;
 	}
+
+	public List<Integer> getProductAmountList() {
+		return productAmountList;
+	}
+
+	public void setProductAmountList(List<Integer> productAmountList) {
+		this.productAmountList = productAmountList;
+	}
+	
 }

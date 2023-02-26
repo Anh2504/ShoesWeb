@@ -13,7 +13,7 @@ public class ProductImageService {
 	ProductImageRepository productImageRepository;
 	
 	@Transactional
-	public ProductImage findById(int id) {
+	public ProductImage findById(long id) {
 		return productImageRepository.findById(id);
 	}
 }

@@ -41,6 +41,12 @@
 			<artifactId>spring-orm</artifactId>
 			<version>5.3.13</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-commons -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-commons</artifactId>
+			<version>2.7.2</version>
+		</dependency>
 
 		<!-- spring data jpa -->
 		<dependency>
@@ -96,7 +102,13 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.13.2.2</version>
 		</dependency>
-
+		<!-- logging -->
+		<dependency>
+	      <groupId>log4j</groupId>
+	      <artifactId>log4j</artifactId>
+	      <version>1.2.17</version>
+	    </dependency>
+    
 	</dependencies>
 	<build>
 		<plugins>
@@ -120,6 +132,6 @@
 
 
 		</plugins>
-		<finalName>webbangiay</finalName>
+		<finalName>webbangiay321321</finalName>
 	</build>
 </project>

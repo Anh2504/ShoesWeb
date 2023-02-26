@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.cdweb.model.Product;
 
-public interface ProductRepository2 extends CrudRepository<Product, Integer>{
+public interface ProductRepository2 extends CrudRepository<Product, Long>{
 	//ArrayList<Product> findAllById(int id, Pageable page);
 	Product deleteById(int id);
 	@Query("SELECT p FROM Product p WHERE price = 1190000")

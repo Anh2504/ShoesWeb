@@ -13,8 +13,8 @@ import javax.persistence.Table;
 public class ProductImage {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private long id;
 	
 	@Column(name = "image1")
 	private String image1;

@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Printd T-Shirt - RedStore</title>
+<title>RedStore</title>
 <link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>">
 <link
 	href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -16,11 +16,13 @@
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+</script>
+
 <script>
 	
 
-	$(function() {
+	   $(function() {
 		$('#submitButton2').click(
 				function(e) {
 
@@ -31,7 +33,7 @@
 					$('input').next('span').remove();
 
 					$.post({
-						url : 'account-registered',
+						url : 'perform_register',
 						data : $('#RegForm').serialize(),
 						success : function(res) {
 							if (res.validated) {
@@ -49,7 +51,7 @@
 					})
 				});
 
-	});
+	});   
 </script>
 <style>
 .form-container {
@@ -71,19 +73,56 @@
 					src="<c:url value="/resources/images/logo.png" />" width="125px"></a>
 			</div>
 			<nav>
-				<ul id="MenuItems">
-					<li><a href="/webbangiay/index">Home</a></li>
-					<li><a href="/webbangiay/product">Products</a></li>
-					<li><a href="">About</a></li>
-					<li><a href="">Contact</a></li>
-					<li><a href="/webbangiay/account-login">Account</a></li>
-				</ul>
-			</nav>
-			<a href="cart.html"><img
-				src="<c:url value="/resources/images/cart.png" />" width="30px"
-				height="30px"></a> <img
-				src="<c:url value="/resources/images/menu.png" />" class="menu-icon"
-				onclick="menutoggle()">
+					<ul id="MenuItems">
+						
+						<li><a href="/webbangiay/index">Home</a></li>
+						
+						<li>
+							<a href="/webbangiay/index">Giày nam</a>
+								<ul class="sub-ul">
+							        <c:forEach items="${categoryList }" var="stt">
+							        	<li class="sub-li"><a href="/webbangiay/product/nam/${stt.getId() }">${stt.getName()}</a></li>
+							        </c:forEach>
+						      	</ul>
+						</li>
+						
+						<li>
+							<a href="/webbangiay/index">Giày nữ</a>
+								<ul class="sub-ul">
+							        <c:forEach items="${categoryList }" var="stt">
+							        	<li class="sub-li"><a href="/webbangiay/product/nu/${stt.getId() }">${stt.getName()}</a></li>
+							        </c:forEach>
+						      	</ul>
+						</li>
+						
+						
+						<li><a href="/webbangiay/product">Products</a></li>
+						<li><a href="/webbangiay/admin">Admin</a></li>
+						<c:choose>
+							<c:when test="${sessionScope.loginStatus==true }">
+								<li><a href="#">${username}</a></li>
+								<li><a href="/webbangiay/logout">Log out</a></li>
+							</c:when>
+
+							<c:otherwise>
+								<li><a href="/webbangiay/login">Login/Register</a></li>
+							</c:otherwise>
+						</c:choose>
+
+						<li class="shopping-cart">
+							<a class="shopping-cart" href="/webbangiay/cart">
+								<img src="<c:url value="/resources/images/cart.png" />" width="30px"height="30px">
+							</a>
+						</li>
+						
+					</ul>
+				</nav>
+				
+				
+				 <img
+					src="<c:url value="/resources/images/menu.png" />"
+					class="menu-icon" onclick="menutoggle()">
+			
 		</div>
 	</div>
 	<!-- ------------Account-page------------------- -->
@@ -102,11 +141,12 @@
 							<hr id="Indicator">
 						</div>
 
-				 <form:form id="LoginForm" method="POST"
-							action="/webbangiay/account-logined" modelAttribute="loginModel">
+				 		<form:form id="LoginForm" method="POST"
+							action="/webbangiay/perform_login" modelAttribute="loginModel">
 							<form:input type="email" placeholder="Email" path="email" />
 							<form:input type="password" placeholder="Password"
 								path="password" />
+								<div style="color:#FF0000;font-size:12px">${error }</div>
 							<button type="submit" class="btn">Login</button>
 							<a href="">Forgot password</a>
 						</form:form>
@@ -128,7 +168,7 @@
 							<button type="submit" class="btn">Register</button>
 						</form:form>
 				-->
-						<form id="RegForm" action="/account-registered">
+						<form id="RegForm" action="/webbangiay/perform_register" method = "POST">
 							<input type="email" placeholder="Email" name="email" /> <input
 								type="text" placeholder="Name" name="name" /> <input
 								type="password" placeholder="Password" name="password" /> <input

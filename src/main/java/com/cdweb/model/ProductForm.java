@@ -1,7 +1,7 @@
 package com.cdweb.model;
 
 public class ProductForm {
-	private int id;
+	private Long id;
 	private String name;
 	private long price;
 	
@@ -9,18 +9,18 @@ public class ProductForm {
 		
 	}
 
-	public ProductForm(int id, String name, long price) {
+	public ProductForm(Long id, String name, long price) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.price = price;
 	}
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

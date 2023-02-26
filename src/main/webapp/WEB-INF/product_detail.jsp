@@ -21,26 +21,56 @@
                 <a href="index.html"><img src="<c:url value="/resources/images/logo.png" />" width="125px"></a>
             </div>
             <nav>
-                <ul id="MenuItems">
-                        <li><a href="/webbangiay/index">Home</a></li>
-                        <li><a href="/webbangiay/product">Products</a></li>
-                        <li><a href="">About</a></li>
-                        <c:choose>
-                        	<c:when test="${sessionScope.loginStatus==true }">
-                        		<li><a href="#">${username}</a></li>
-                        	</c:when>
-                        	
-                        	<c:otherwise>
-                        		<li><a href="/webbangiay/account-login">Dang nhap</a></li>
-                        	</c:otherwise>
-                        </c:choose>
-                        
-                        
-                    </ul>
-            </nav>
-            <a href="cart.html"><img src="<c:url value="/resources/images/cart.png" />" width="30px" height="30px"></a>
-            <img src="<c:url value="/resources/images/menu.png" />" class="menu-icon" 
-                onclick="menutoggle()">
+					<ul id="MenuItems">
+						
+						<li><a href="/webbangiay/index">Home</a></li>
+						
+						<li>
+							<a href="/webbangiay/index">Giày nam</a>
+								<ul class="sub-ul">
+							        <c:forEach items="${categoryList }" var="stt">
+							        	<li class="sub-li"><a href="/webbangiay/product/nam/${stt.getId() }">${stt.getName()}</a></li>
+							        </c:forEach>
+						      	</ul>
+						</li>
+						
+						<li>
+							<a href="/webbangiay/index">Giày nữ</a>
+								<ul class="sub-ul">
+							        <c:forEach items="${categoryList }" var="stt">
+							        	<li class="sub-li"><a href="/webbangiay/product/nu/${stt.getId() }">${stt.getName()}</a></li>
+							        </c:forEach>
+						      	</ul>
+						</li>
+						
+						
+						<li><a href="/webbangiay/product">Products</a></li>
+						<li><a href="/webbangiay/admin">Admin</a></li>
+						<c:choose>
+							<c:when test="${sessionScope.loginStatus==true }">
+								<li><a href="#">${username}</a></li>
+								<li><a href="/webbangiay/logout">Log out</a></li>
+							</c:when>
+
+							<c:otherwise>
+								<li><a href="/webbangiay/login">Login/Register</a></li>
+							</c:otherwise>
+						</c:choose>
+
+						<li class="shopping-cart">
+							<a class="shopping-cart" href="/webbangiay/cart">
+								<img src="<c:url value="/resources/images/cart.png" />" width="30px"height="30px">
+							</a>
+						</li>
+						
+					</ul>
+				</nav>
+				
+				
+				 <img
+					src="<c:url value="/resources/images/menu.png" />"
+					class="menu-icon" onclick="menutoggle()">
+            
         </div>
     </div>
     </div>
